@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Create Task",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Open task creation interface"
+            }
+          }
+        ],
+        "send": {
+          "callback": "task:create"
+        }
+      }
+    ]
+  }
+]
