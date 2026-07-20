@@ -1,17 +1,17 @@
 import { Composer } from "grammy";
+import type { Ctx } from "../bot.js";
+import { registerMainMenuItem, inlineButton, inlineKeyboard } from "../toolkit/index.js";
 
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-// Menu: wire this into /start via registerMainMenuItem({ label: "Create Task", data: "task:create" }) if the toolkit exposes it.
+// Registered in create.ts with "Create task" data.
 
-const composer = new Composer();
+const composer = new Composer<Ctx>();
 
 composer.callbackQuery("task:create", async (ctx) => {
   await ctx.answerCallbackQuery();
-  await ctx.reply("Open task creation interface");
+  await ctx.editMessageText("Enter a task name:", {
+    reply_markup: inlineKeyboard([[inlineButton("⬅️ Back", "create:show")]]),
+  });
+  (ctx.session as any).taskCreation = (ctx.session as any).taskCreation || {};
 });
 
 export default composer;

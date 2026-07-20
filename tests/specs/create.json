@@ -7,7 +7,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Initiate task creation flow"
+              "text": "Select a project for this task:"
             }
           }
         ],

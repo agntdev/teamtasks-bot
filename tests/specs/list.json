@@ -7,7 +7,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "View task list by project/assignee"
+              "text": "Select a filter:"
             }
           }
         ],

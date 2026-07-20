@@ -1,18 +1,18 @@
 [
   {
-    "name": "task:detail",
+    "name": "Open calendar",
     "steps": [
       {
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Show full task info and comments"
-            }
+            "method": "answerCallbackQuery"
+          },
+          {
+            "method": "editMessageText"
           }
         ],
         "send": {
-          "callback": "task:detail"
+          "callback": "calendar:show"
         }
       }
     ]

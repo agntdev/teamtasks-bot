@@ -1,14 +1,14 @@
 [
   {
-    "name": "Create Task",
+    "name": "Create task",
     "steps": [
       {
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Open task creation interface"
-            }
+            "method": "answerCallbackQuery"
+          },
+          {
+            "method": "editMessageText"
           }
         ],
         "send": {
